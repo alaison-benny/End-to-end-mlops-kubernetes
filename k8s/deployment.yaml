@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentiment-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: sentiment-api
+  template:
+    metadata:
+      labels:
+        app: sentiment-api
+    spec:
+      containers:
+      - name: api-container
+        image: alaisonbenny/sentiment-api:latest
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: "250m"      # മിനിമം പവർ (0.25 vCPU)
+            memory: "512Mi"  # മിനിമം മെമ്മറി
+          limits:
+            cpu: "500m"      # മാക്സിമം പവർ (0.5 vCPU)
+            memory: "1Gi"    # ന്റെ ചേട്ടായി ചോദിച്ച 1GiB ലിമിറ്റ് ഇതാ!
+        envFrom:
+        - configMapRef:
+            name: api-config
+        - secretRef:
+            name: api-secrets

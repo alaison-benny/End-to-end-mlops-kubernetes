@@ -1,0 +1,16 @@
+grafana:
+  ingress:
+    enabled: true
+    ingressClassName: alb
+    annotations:
+      alb.ingress.kubernetes.io/scheme: internet-facing
+      alb.ingress.kubernetes.io/target-type: ip
+      alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+      # ഗ്രൂപ്പ് നെയിം ഒഴിവാക്കി, അപ്പോൾ പുതിയ ലോഡ് ബാലൻസർ വരും
+    path: /
+    pathType: Prefix
+
+  # സബ്-പാത്ത് ഒഴിവാക്കുന്നത് കൊണ്ട് ഈ സെക്ഷൻ ഇനി വേണ്ട
+  grafana.ini:
+    server:
+      serve_from_sub_path: false

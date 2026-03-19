@@ -1,0 +1,20 @@
+replicaCount: 2
+
+image:
+  repository: alaisonbenny/sentiment-api
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  groupName: "sentiments-group"
+  scheme: internet-facing
+  targetType: ip
+
+hpa:
+  minReplicas: 2
+  maxReplicas: 5
+  cpuTarget: 50

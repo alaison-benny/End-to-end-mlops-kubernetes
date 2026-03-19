@@ -1,0 +1,9 @@
+.terraform/
+*.terraform*
+terraform.tfstate*
+__pycache__/
+*.pyc
+venv/
+.env
+sentiment-chart/templates/secrets.backup
+EOF
