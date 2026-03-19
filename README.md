@@ -90,14 +90,20 @@ kubectl get ingress
 
 ## 📸 Screenshots
 
-> *Note: ന്റെ ചേട്ടായി, add your specific screenshots here to prove the project is running\!*
+### 1\. EKS Cluster Status
 
-### 1\. Grafana Dashboard
+![AWS EKS Cluster](./assets/eks.png)
 
-*Monitoring the API performance and CPU usage.*
+### 2\. Kubernetes Cluster Health
 
-### 2\. AWS EKS Console
+![Cluster Health](./assets/cluster.png)
 
-*Showing the active nodes and pods.*
+### 3\. Scaling-Workloads Details
+
+![Workload Monitoring](./assets/workload.png)
+
+### 4\. Scaling-Kubelet Details
+
+![Kubelet Logs](./assets/kubelet.png)
 
 -----
